@@ -64,6 +64,7 @@ int main(){
 
 
 /*
+T(n) = 2T(n/2) + θ(n)
 Time Complexity:O(nlog(n))
 Space Complexity:O(n)
 */
