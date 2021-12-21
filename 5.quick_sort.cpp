@@ -1,30 +1,55 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-int partition(int b[],int l,int r){
-    int pivot=b[r];
-    int i=l-1;
-    for(int j=i;j<r;j++){
-        if(b[j]<pivot){
-            i++;
-            swap(b[i],b[j]);
-            
-        }
+
+int partition (int arr[], int low, int high)
+{
+	int pivot = arr[high]; 
+	int i = (low - 1); 
+	for (int j = low; j <= high - 1; j++)
+	{
+		if (arr[j] < pivot)
+		{
+			i++; 
+			swap(arr[i], arr[j]);
+		}
+	}
+	swap(arr[i + 1], arr[high]);
+	return (i + 1);
+}
+
+
+void quickSort(int arr[], int low, int high)
+{
+	if (low < high)
+	{
+		
+		int pi = partition(arr, low, high);
+
+		
+		quickSort(arr, low, pi - 1);
+		quickSort(arr, pi + 1, high);
+	}
+}
+
+void printArray(int arr[], int size)
+{
+	int i;
+	for (i = 0; i < size; i++)
+		cout << arr[i] << " ";
+	cout << endl;
+}
+
+int main()
+{
+	int a;
+    cin>>a;
+    int b[a];
+    for(int i=0;i<a;i++){
+        cin>>b[i];
     }
-    swap(b[i+1],b[r]);
-    return i+1;
+	quickSort(b, 0, a-1);
+	cout << "Sorted array: \n";
+	printArray(b, a);
+	return 0;
 }
-void quick_sort(int b[],int l,int r){
-if(l<r){
-    int pi=partition(b,l,r);
-    quick_sort(b,l,pi-1);
-    quick_sort(b,pi+1,r);
-}
-}
-int main(){
-    int b[5]={5,4,3,2,1};
-    quick_sort(b,0,4);
-    for(int i=0;i<5;i++){
-        cout<<b[i]<<" ";
-    }
-cout<<endl;
-}
+
