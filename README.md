@@ -1,3 +1,4 @@
 # Sorting_algorithms
+#sorting #c++ #competitive coding
 
-Here, I will be solving problems on all the sorting algorithms in c++
+This Repository Contains Implementation of all the trending sortiong algorithms in c++
